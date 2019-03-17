@@ -7,14 +7,16 @@ GNU General Public License V3.0
 ## References
 See https://iase.disa.mil/stigs/Pages/index.aspx
 ## Files
-* MacOS-update.sh
-	* Apple OS X 10.12 (Sierra) Security Technical Implementation Guide (STIG) Version 1, 8 August 2017
+### MacOS-update.sh
+Apple OS X 10.12 (Sierra) Security Technical Implementation Guide (STIG) Version 1, 8 August 2017
+Sample:
 ```
 sudo defaults read /Library/Preferences/com.apple.SoftwareUpdate | grep LastSuccessfulDate | sed -e 's@^.* "\([0-9\\-]*\) .*$@\1@'); if [ "$LASTUPDATE" = "$(date +%Y-%m-%d)" ];then exit 0; fi; exit 1
 sudo /usr/bin/softwareupdate -i -a
 ```
-* Windows10-update.psh
-	* Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, 25 November 2015
+### Windows10-update.psh
+Microsoft Windows 10 Security Technical Implementation Guide (STIG) Version 1, 25 November 2015
+Sample:
 ```
 $CompObj | Add-Member noteproperty Computername $computer.Name
       
@@ -22,8 +24,9 @@ $CompObj | Add-Member noteproperty Computername $computer.Name
         Else {$ExpirationDate = [DateTime]::FromFileTime($computer.'ms-Mcs-AdmPwdExpirationTime')} 
 $CompObj | Add-Member noteproperty NextPasswordExpiration $ExpirationDate
 ```
-* Linux-hardening.sh
-	* Ubuntu Linux 18.04 --> modified Canonical Ubuntu 16.04 LTS Security Technical Implementation Guide (STIG) Version 1, Release 1 25 July 2018 using scripts from JackTheStripper and others.
+### Linux-hardening.sh
+Ubuntu Linux 18.04 --> modified Canonical Ubuntu 16.04 LTS Security Technical Implementation Guide (STIG) Version 1, Release 1 25 July 2018 using scripts from JackTheStripper and others.
+Sample:
 ```
 restrictive_umask(){
    clear
